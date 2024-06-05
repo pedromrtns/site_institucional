@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Serviços - Empresa Setup</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    {% load static %}
+    {% comment %} <link href="{% static 'css/servicos.css' %}" rel="stylesheet"> {% endcomment %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Nossos Serviços</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'recursos' %}">Recursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sobre_nos' %}">Sobre Nós</a>
+                </li> 
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Serviços</a>
+                </li>
+                {% comment %} <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contato</a>
+                </li> {% endcomment %}
+            </ul>
+        </div>
+    </nav>
+    <header class="jumbotron jumbotron-fluid text-center text-white bg-cover" style="background-image: url('https://source.unsplash.com/1600x900/?technology');">
+        <div class="container bg-overlay">
+            <h1 class="display-4">Nossos Serviços</h1>
+            <p class="lead">Conheça todos os serviços que oferecemos para impulsionar o seu negócio.</p>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="service">
+                    <h2>Desenvolvimento de Software</h2>
+                    <p>Criamos soluções personalizadas para atender às suas necessidades específicas.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service">
+                    <h2>Serviços em Nuvem</h2>
+                    <p>Soluções de computação em nuvem que garantem flexibilidade e segurança.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="service">
+                    <h2>Inteligência Artificial</h2>
+                    <p>Soluções inovadoras utilizando IA para melhorar seus processos.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service">
+                    <h2>Suporte Personalizado</h2>
+                    <p>Nossa equipe de suporte está sempre disponível para ajudar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p>&copy; 2024 Empresa Setup. Todos os direitos reservados.</p>
+    </footer>
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

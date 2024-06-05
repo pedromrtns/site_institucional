@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa Setup</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- Mensagens -->
+    {% if messages %}
+        <div class="container mt-4">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Setup</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link"  href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'recursos' %}">Recursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sobre_nos' %}">Sobre Nós</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'servicos' %}">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <div class="jumbotron jumbotron-fluid text-center text-white bg-cover" style="background-image: url('https://source.unsplash.com/1600x900/?technology');">
+            <div class="container bg-overlay">
+                <h1 class="display-4">Bem-vindo ao Setup</h1>
+                <p class="lead">Transformando Tecnologia em Soluções Inovadoras</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Saiba Mais</a>
+            </div>
+        </div>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Nossos Serviços</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://source.unsplash.com/600x400/?software" class="card-img-top" alt="Software">
+                    <div class="card-body">
+                        <h5 class="card-title">Desenvolvimento de Software</h5>
+                        <p class="card-text">Criamos soluções personalizadas para atender às suas necessidades específicas.</p>
+                        <a href="#" class="btn btn-outline-primary">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://source.unsplash.com/600x400/?cloud" class="card-img-top" alt="Cloud">
+                    <div class="card-body">
+                        <h5 class="card-title">Serviços em Nuvem</h5>
+                        <p class="card-text">Soluções de computação em nuvem que garantem flexibilidade e segurança.</p>
+                        <a href="#" class="btn btn-outline-primary">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://source.unsplash.com/600x400/?ai" class="card-img-top" alt="AI">
+                    <div class="card-body">
+                        <h5 class="card-title">Inteligência Artificial</h5>
+                        <p class="card-text">Soluções inovadoras utilizando IA para melhorar seus processos.</p>
+                        <a href="#" class="btn btn-outline-primary">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- Modal de Contato -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Entre em Contato conosco</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Telefone:</strong> (11) 1234-5678</p>
+                    <p><strong>Email:</strong> contato@setup.com</p>
+                    <form method="post" action="{% url 'contato' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email">Seu Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

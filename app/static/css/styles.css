@@ -1,0 +1,62 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.bg-cover {
+    background-size: cover !important;
+    background-position: center center;
+}
+
+.bg-overlay {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 50px;
+    border-radius: 10px;
+}
+
+
+.jumbotron {
+    padding: 4rem 2rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.75);
+    transition: color 0.2s;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+.card-title {
+    color: #007bff;
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo para mensagens de alerta */
+.alert {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1rem; /* Certifique-se de que o texto é legível */
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724; /* Cor do texto para garantir legibilidade */
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}

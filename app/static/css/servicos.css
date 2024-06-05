@@ -1,0 +1,23 @@
+.service {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    margin-bottom: 30px;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+}
+
+.service h2 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.service p {
+    color: #6c757d;
+    font-size: 18px;
+}

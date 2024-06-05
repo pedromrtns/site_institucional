@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Empresa Setup</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- Mensagens -->
+    {% if messages %}
+        <div class="container mt-4">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Sobre Nós</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'recursos' %}">Recursos</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'sobre_nos' %}">Sobre Nós</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="jumbotron jumbotron-fluid text-center text-white bg-cover" style="background-image: url('https://source.unsplash.com/1600x900/?team');">
+        <div class="container bg-overlay">
+            <h1 class="display-4">Sobre Nós</h1>
+            <p class="lead">Conheça a nossa história e nossos valores</p>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Nossa História</h2>
+        <p>
+            Fundada em 2024, a Empresa Setup nasceu com a missão de transformar tecnologia em soluções inovadoras. Desde o início, nosso compromisso foi com a excelência. Com uma equipe altamente qualificada e dedicada, a Empresa Setup se destacou no mercado por sua capacidade de entregar projetos complexos com agilidade e precisão.
+        </p>
+        <p>
+            Ao longo dos anos, expandimos nossos serviços e nossa equipe, sempre focados em oferecer a melhor qualidade e suporte personalizado aos nossos clientes. Nosso sucesso é resultado do trabalho coletivo e do compromisso com a inovação e a excelência.
+        </p>
+        <h2 class="text-center mt-5 mb-4">Nosso Compromisso com os Clientes</h2>
+        <p>
+            Na Empresa Setup, nossos clientes são a nossa prioridade. Estamos comprometidos em oferecer soluções que atendam às suas necessidades específicas, garantindo a máxima qualidade e suporte contínuo.
+        </p>
+        <p>
+            Valorizamos a confiança e a parceria estabelecida com cada cliente. Acreditamos que o sucesso deles é o nosso sucesso, e trabalhamos incansavelmente para garantir que suas expectativas sejam sempre superadas.
+        </p>
+        <p>
+            Obrigado por fazer parte da nossa jornada. Estamos aqui para ajudá-lo a alcançar seus objetivos e transformar sua visão em realidade.
+        </p>
+    </div>
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p>&copy; 2024 Empresa Setup. Todos os direitos reservados.</p>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
