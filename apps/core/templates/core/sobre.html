@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Sobre - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- About Hero Section -->
+    <div class="row mb-5">
+        <div class="col-lg-6 fade-in">
+            <h1 class="display-4 mb-4">Sobre Nós</h1>
+            <p class="lead">Somos uma empresa comprometida com a excelência e inovação, buscando sempre as melhores soluções para nossos clientes.</p>
+            <hr class="my-4">
+            <p>Fundada com o propósito de transformar ideias em realidade, nossa empresa tem se destacado no mercado por sua dedicação à qualidade e compromisso com o sucesso de nossos clientes.</p>
+        </div>
+        <div class="col-lg-6 fade-in">
+            <img src="https://via.placeholder.com/600x400" alt="About Us" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- Mission, Vision, Values -->
+    <div class="row g-4 py-5">
+        <div class="col-md-4 fade-in">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-bullseye fa-3x text-primary mb-3"></i>
+                    <h3 class="card-title">Missão</h3>
+                    <p class="card-text">Oferecer soluções inovadoras e de qualidade, contribuindo para o sucesso e crescimento de nossos clientes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 fade-in">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-eye fa-3x text-success mb-3"></i>
+                    <h3 class="card-title">Visão</h3>
+                    <p class="card-text">Ser referência em nosso segmento, reconhecida pela excelência em serviços e satisfação dos clientes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 fade-in">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+                    <h3 class="card-title">Valores</h3>
+                    <p class="card-text">
+                        • Ética e transparência<br>
+                        • Compromisso com resultados<br>
+                        • Inovação constante<br>
+                        • Respeito às pessoas
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <section class="py-5">
+        <h2 class="text-center mb-5">Nossa Equipe</h2>
+        <div class="row g-4">
+            <div class="col-md-4 fade-in">
+                <div class="card text-center">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">João Silva</h5>
+                        <p class="card-text text-muted">CEO & Fundador</p>
+                        <p class="card-text">Mais de 15 anos de experiência em gestão e inovação.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="card text-center">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Maria Santos</h5>
+                        <p class="card-text text-muted">Diretora de Operações</p>
+                        <p class="card-text">Especialista em otimização de processos e gestão de equipes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="card text-center">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="Team Member">
+                    <div class="card-body">
+                        <h5 class="card-title">Pedro Oliveira</h5>
+                        <p class="card-text text-muted">Diretor Técnico</p>
+                        <p class="card-text">Profissional com vasta experiência em tecnologia e inovação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="text-center py-5">
+        <h2 class="mb-4">Quer fazer parte dessa história?</h2>
+        <p class="lead mb-4">Entre em contato conosco e descubra como podemos trabalhar juntos.</p>
+        <a href="{% url 'contato' %}" class="btn btn-primary btn-lg">Entre em Contato</a>
+    </section>
+</div>
+{% endblock %} 

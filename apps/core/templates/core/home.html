@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <div class="row align-items-center py-5">
+        <div class="col-lg-6 fade-in">
+            <h1 class="display-4 fw-bold">Bem-vindo ao Site Institucional</h1>
+            <p class="lead">Somos uma empresa comprometida com a excelência e inovação em nossos serviços.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a href="{% url 'servicos' %}" class="btn btn-primary btn-lg px-4 me-md-2">Nossos Serviços</a>
+                <a href="{% url 'contato' %}" class="btn btn-outline-secondary btn-lg px-4">Entre em Contato</a>
+            </div>
+        </div>
+        <div class="col-lg-6 fade-in">
+            <img src="https://via.placeholder.com/600x400" alt="Hero Image" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="py-5">
+        <h2 class="text-center mb-5">Nossos Serviços</h2>
+        <div class="row">
+            {% for servico in servicos %}
+            <div class="col-md-4 mb-4 fade-in">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="{{ servico.icone }} fa-3x mb-3 text-primary"></i>
+                        <h5 class="card-title">{{ servico.titulo }}</h5>
+                        <p class="card-text">{{ servico.descricao|truncatewords:30 }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'servicos' %}" class="btn btn-primary">Ver Todos os Serviços</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light rounded">
+        <div class="container">
+            <h2 class="text-center mb-5">Por que nos escolher?</h2>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in">
+                    <div class="text-center">
+                        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                        <h4>Qualidade</h4>
+                        <p>Comprometimento com a excelência em todos os nossos serviços.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="text-center">
+                        <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                        <h4>Pontualidade</h4>
+                        <p>Respeitamos prazos e compromissos assumidos com nossos clientes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="text-center">
+                        <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+                        <h4>Dedicação</h4>
+                        <p>Atendimento personalizado e foco total na satisfação do cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 text-center">
+        <h2 class="mb-4">Pronto para começar?</h2>
+        <p class="lead mb-4">Entre em contato conosco e descubra como podemos ajudar seu negócio.</p>
+        <a href="{% url 'contato' %}" class="btn btn-lg btn-primary">Entre em Contato</a>
+    </section>
+</div>
+{% endblock %} 

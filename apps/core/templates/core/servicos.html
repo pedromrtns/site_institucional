@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}Serviços - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Services Hero -->
+    <div class="text-center mb-5 fade-in">
+        <h1 class="display-4 mb-3">Nossos Serviços</h1>
+        <p class="lead">Conheça nossa gama completa de serviços especializados para atender às suas necessidades.</p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="row g-4">
+        {% for servico in servicos %}
+        <div class="col-md-6 col-lg-4 fade-in">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="{{ servico.icone }} fa-3x mb-3 text-primary"></i>
+                    <h3 class="card-title h4">{{ servico.titulo }}</h3>
+                    <p class="card-text">{{ servico.descricao }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center">
+                    <a href="{% url 'contato' %}" class="btn btn-outline-primary">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p class="lead">Nenhum serviço cadastrado no momento.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Benefits Section -->
+    <section class="py-5 mt-5">
+        <h2 class="text-center mb-5">Benefícios dos Nossos Serviços</h2>
+        <div class="row g-4">
+            <div class="col-md-4 fade-in">
+                <div class="text-center">
+                    <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                    <h4>Resultados Comprovados</h4>
+                    <p>Nossos serviços são focados em entregar resultados mensuráveis para seu negócio.</p>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="text-center">
+                    <i class="fas fa-users fa-3x text-success mb-3"></i>
+                    <h4>Equipe Especializada</h4>
+                    <p>Contamos com profissionais altamente qualificados e experientes.</p>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="text-center">
+                    <i class="fas fa-cogs fa-3x text-info mb-3"></i>
+                    <h4>Soluções Personalizadas</h4>
+                    <p>Desenvolvemos soluções sob medida para atender às suas necessidades específicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <h2 class="text-center mb-5">Perguntas Frequentes</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion fade-in" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Como funciona o processo de contratação?
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                O processo é simples: entre em contato conosco, faremos uma análise das suas necessidades, apresentaremos uma proposta personalizada e, após a aprovação, iniciaremos os trabalhos.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Qual o prazo médio de entrega dos serviços?
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                O prazo varia de acordo com a complexidade do serviço. Durante a fase de proposta, estabelecemos um cronograma detalhado com todas as etapas e prazos.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Vocês atendem em todo o Brasil?
+                            </button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Sim, atendemos em todo o território nacional, com suporte remoto e presencial quando necessário.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="text-center py-5">
+        <h2 class="mb-4">Pronto para começar?</h2>
+        <p class="lead mb-4">Entre em contato conosco para uma consulta gratuita.</p>
+        <a href="{% url 'contato' %}" class="btn btn-primary btn-lg">Solicitar Orçamento</a>
+    </section>
+</div>
+{% endblock %} 

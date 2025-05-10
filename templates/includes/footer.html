@@ -1,0 +1,30 @@
+<footer class="bg-dark text-light mt-5">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Sobre Nós</h5>
+                <p>Somos uma empresa comprometida com a excelência e inovação em nossos serviços.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Links Rápidos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
+                    <li><a href="{% url 'sobre' %}" class="text-light">Sobre</a></li>
+                    <li><a href="{% url 'servicos' %}" class="text-light">Serviços</a></li>
+                    <li><a href="{% url 'contato' %}" class="text-light">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Contato</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-phone me-2"></i> (11) 1234-5678</li>
+                    <li><i class="fas fa-envelope me-2"></i> contato@empresa.com</li>
+                    <li><i class="fas fa-map-marker-alt me-2"></i> Rua Example, 123 - São Paulo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center py-3 border-top border-secondary">
+        <p class="mb-0">&copy; {% now "Y" %} Site Institucional. Todos os direitos reservados.</p>
+    </div>
+</footer> 

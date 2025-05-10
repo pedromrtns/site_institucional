@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Contato - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <!-- Contact Info -->
+        <div class="col-md-5 fade-in">
+            <h1 class="display-4 mb-4">Entre em Contato</h1>
+            <p class="lead mb-4">Estamos aqui para ajudar. Entre em contato conosco através do formulário ou utilize um de nossos canais de atendimento.</p>
+            
+            <div class="mb-4">
+                <h4>Informações de Contato</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                        Rua Example, 123 - São Paulo, SP
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-phone text-primary me-2"></i>
+                        (11) 1234-5678
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-envelope text-primary me-2"></i>
+                        contato@empresa.com
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-clock text-primary me-2"></i>
+                        Segunda a Sexta: 9h às 18h
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <h4>Redes Sociais</h4>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-primary fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-info fs-4"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-danger fs-4"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-primary fs-4"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-md-7 fade-in">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="card-title mb-4">Envie sua Mensagem</h2>
+                    
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                            <div class="mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <div class="invalid-feedback d-block">
+                                            {{ error }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="mt-5 fade-in">
+        <h3 class="text-center mb-4">Nossa Localização</h3>
+        <div class="ratio ratio-21x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975774948833!2d-46.6522131!3d-23.5645224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzUyLjMiUyA0NsKwMzknMDguMCJX!5e0!3m2!1spt-BR!2sbr!4v1635959981234!5m2!1spt-BR!2sbr"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %} 

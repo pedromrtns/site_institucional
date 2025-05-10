@@ -1,19 +1,108 @@
-# Projeto Setup
+# Site Institucional
 
-Bem-vindo ao projeto Setup! Este é um projeto fictício de uma empresa de tecnologia que oferece uma variedade de serviços para impulsionar negócios.
+## Estrutura do Projeto
+```
+site_institucional/
+│
+├── apps/                    # Todas as aplicações do projeto
+│   └── core/               # Aplicação principal
+│       ├── migrations/     
+│       ├── static/        
+│       │   ├── css/       
+│       │   ├── js/        
+│       │   └── images/    
+│       ├── templates/     
+│       ├── tests/         
+│       ├── admin.py      
+│       ├── apps.py       
+│       ├── models.py     
+│       ├── urls.py       
+│       └── views.py      
+│
+├── setup/                  # Configurações do projeto
+│   ├── settings/          
+│   │   ├── __init__.py   
+│   │   ├── base.py       # Configurações base
+│   │   ├── local.py      # Configurações de desenvolvimento
+│   │   └── production.py # Configurações de produção
+│   ├── urls.py           
+│   └── wsgi.py           
+│
+├── static/                # Arquivos estáticos do projeto
+│   ├── css/              
+│   ├── js/               
+│   └── images/           
+│
+├── templates/             # Templates globais
+│   ├── base.html         
+│   └── includes/         
+│
+├── .env                   # Variáveis de ambiente
+├── .gitignore            
+├── manage.py             
+├── requirements/          # Requisitos separados por ambiente
+│   ├── base.txt          
+│   ├── local.txt         
+│   └── production.txt    
+└── requirements.txt       # Aponta para requirements/production.txt
+```
 
-## Sobre o Projeto
+## Configuração do Ambiente
 
-O projeto Setup é uma aplicação web construída usando Django, um framework web em Python. Ele oferece várias funcionalidades, incluindo:
+1. Clone o repositório
+```bash
+git clone [url-do-repositorio]
+cd site_institucional
+```
 
-- **Página inicial**: Apresenta uma introdução à empresa e seus serviços.
-- **Recursos**: Detalha os recursos oferecidos pela empresa.
-- **Sobre Nós**: Fornece informações sobre a empresa e sua equipe.
-- **Serviços**: Lista todos os serviços oferecidos pela empresa.
+2. Crie um ambiente virtual
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+```
 
+3. Instale as dependências
+```bash
+pip install -r requirements/local.txt  # Para desenvolvimento
+pip install -r requirements.txt        # Para produção
+```
 
-## Contribuindo
-Se você gostaria de contribuir com este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request. Toda contribuição é bem-vinda!
+4. Configure as variáveis de ambiente
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+```
+SECRET_KEY=sua-chave-secreta
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+DATABASE_URL=sqlite:///db.sqlite3
+```
 
-## Licença
-Este projeto está licenciado sob a licença MIT.
+5. Execute as migrações
+```bash
+python manage.py migrate
+```
+
+6. Crie um superusuário
+```bash
+python manage.py createsuperuser
+```
+
+7. Execute o servidor de desenvolvimento
+```bash
+python manage.py runserver
+```
+
+## Desenvolvimento
+
+- Use `python manage.py test` para executar os testes
+- Siga o PEP 8 para estilo de código Python
+- Mantenha a documentação atualizada
+- Use branches para novas features
+
+## Produção
+
+Para deploy em produção:
+1. Atualize `ALLOWED_HOSTS` no arquivo `.env`
+2. Configure `DEBUG=False`
+3. Use um servidor WSGI apropriado (ex: Gunicorn)
+4. Configure um servidor web (ex: Nginx) como proxy reverso
